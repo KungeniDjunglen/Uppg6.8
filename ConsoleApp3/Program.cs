@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 
 class Program
@@ -16,14 +16,18 @@ class Program
     static int PrimtalsUndersökarn(int tal)
     {
         List<int> AllaTal = MakeList(tal);
-        for (int i = 2; i < AllaTal.Count(); i++)
+        for (int i = 2; i < AllaTal.Count(); i++) // Väljer tal att dela på
         {
-            if (tal % i == 0)
+            for (int j = 0; j < AllaTal.Count(); j++) //Väljer talet som ska delas
             {
-                AllaTal.Remove(i);
+                if (AllaTal[j] % i == 0)
+                {
+                    AllaTal.RemoveAt(j);
+                }
             }
+
         }
-        return AllaTal.Count;
+        return AllaTal.Count();
     }
     static void Main()
     {
